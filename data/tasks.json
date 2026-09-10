@@ -1,0 +1,19 @@
+[
+{
+  "title": "Clean Bedroom",
+  "description": "Vacuum floor and change sheets",
+  "subTasks": [
+    {
+      "title": "Vacuum floor",
+      "description": "Fetch the vacuum and get to work",
+      "finished": false
+    },
+    {
+      "title": "Change sheets",
+      "description": "take of dirty, nasty ones and put on new ones",
+      "finished": true
+    }
+  ],
+  "finished": false
+}
+]
