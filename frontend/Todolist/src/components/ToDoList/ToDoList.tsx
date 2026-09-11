@@ -1,26 +1,21 @@
 import { useFetch } from "../../hooks/useFetch"
+import type { List, SubTask } from "./types.tsx"
+import { AddTask } from "./AddTask/AddTask.tsx"
+import { useState } from "react"
 
-type List = {
-    id: number
-    title: string
-    description: string
-    finished: boolean
-    subTasks: SubTask[]
-}
-
-type SubTask = {
-    title: string
-    description: string
-    finished: boolean
-}
 
 export default function ToDoList() {
     const { data: list, loading, error } = useFetch<List[]>("http://localhost:7867/tasks")
+    const [modal, setModal] = useState(false)
+
+
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Something went wrong: {error.message}</p>
 
     return (
+        <>
+        <AddTask modal={modal} setModal={setModal}/>
         <div>
             {list?.map((task: List) => (
                 <div key={task.id}>
@@ -37,5 +32,11 @@ export default function ToDoList() {
                 </div>
             ))}
         </div>
+
+
+        {modal && (
+            <h2>This is the open modal</h2>
+        )}
+        </>
     )
 }
