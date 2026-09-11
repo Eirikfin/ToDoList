@@ -19,9 +19,6 @@ class WebConfig : WebMvcConfigurer {
     }
 }
 
-class Cart(val id: Int, val items: List<String>, val status: String)
-
-val currentCart = Cart(1, listOf("shoes", "Pants"), "pending")
 
 @RestController
 @SpringBootApplication

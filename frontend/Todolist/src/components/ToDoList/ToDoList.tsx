@@ -22,11 +22,18 @@ export default function ToDoList() {
 
     return (
         <div>
-            {list?.map((task) => (
+            {list?.map((task: List) => (
                 <div key={task.id}>
                     <h2>{task?.title}</h2>
                     <p>{task?.description}</p>
                     <p>{task?.finished ? "Finished" : "Not finished"}</p>
+                    {task?.subTasks.map((subTask: SubTask) => (
+                        <div key={subTask.title}>
+                        <h3>{subTask?.title}</h3>
+                        <p>{subTask?.description}</p>
+                        <p>{subTask?.finished ? "Done" : "Not done"}</p>
+                        </div>
+                    ))}
                 </div>
             ))}
         </div>
