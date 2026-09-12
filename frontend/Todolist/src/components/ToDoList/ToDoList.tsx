@@ -13,12 +13,13 @@ export default function ToDoList() {
     const [activeTask, setActiveTask] = useState<List | null>(null)
     const [formMode, setFormMode] = useState<"new" | "update">("new")
 
+
     //start a new Task
-    const startTask = () => {
+    const handleNewTask = () => {
         const emptyTask = {
             id: 0,
-            title: "brush teeth",
-            description: "back and forth",
+            title: "",
+            description: "",
             subTasks: [],
             finished: false
         }
@@ -27,9 +28,6 @@ export default function ToDoList() {
         
 
     }
-    const submitTask = async (activeTask) => {
-        listService.postData()
-    }
 
 
     if (loading) return <p>Loading...</p>
@@ -37,7 +35,7 @@ export default function ToDoList() {
 
     return (
         <>
-        <button onClick={startTask}>Add Task</button>
+        <button onClick={handleNewTask}>Add Task</button>
         <div>
             {list?.map((task: List) => (
                 <div key={task.id}>

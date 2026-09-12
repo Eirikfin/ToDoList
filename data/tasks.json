@@ -1,20 +1,27 @@
-[
-{
-  "id": 1,
-  "title": "Clean Bedroom",
-  "description": "Vacuum floor and change sheets",
-  "subTasks": [
-    {
-      "title": "Vacuum floor",
-      "description": "Fetch the vacuum and get to work",
-      "finished": false
-    },
-    {
-      "title": "Change sheets",
-      "description": "take of dirty, nasty ones and put on new ones",
-      "finished": true
-    }
-  ],
-  "finished": false
-}
-]
+[ {
+  "id" : 1,
+  "title" : "Clean Bedroom",
+  "description" : "Vacuum floor and change sheets",
+  "finished" : false,
+  "subTasks" : [ {
+    "title" : "Vacuum floor",
+    "description" : "Fetch the vacuum and get to work",
+    "finished" : false
+  }, {
+    "title" : "Change sheets",
+    "description" : "take of dirty, nasty ones and put on new ones",
+    "finished" : true
+  } ]
+}, {
+  "id" : 2,
+  "title" : "test",
+  "description" : "some task do be done",
+  "finished" : false,
+  "subTasks" : [ ]
+}, {
+  "id" : 3,
+  "title" : "Stævsug gulvet",
+  "description" : "brrrrrrrrrrrrrrrrrr",
+  "finished" : false,
+  "subTasks" : [ ]
+} ]

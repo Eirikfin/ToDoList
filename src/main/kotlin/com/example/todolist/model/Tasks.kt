@@ -1,7 +1,7 @@
 package com.example.todolist.model
 
 class Task(
-    val id: Int,
+    val id: Int? = null,
     val title: String,
     val description: String,
     val finished: Boolean,

@@ -29,7 +29,7 @@ class TaskController {
         val tasks = mapper.readValue<MutableList<Task>>(dataFile)
 
         //give the task an id
-        val newId = (tasks.maxOfOrNull { it.id } ?: 0) + 1
+        val newId = (tasks.maxOfOrNull { it.id ?: 0 } ?: 0) + 1
 
         val newTask = Task(
             id = newId,
