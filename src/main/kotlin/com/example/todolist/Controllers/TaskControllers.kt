@@ -62,8 +62,8 @@ class TaskController {
         val subTasks: MutableList<SubTask>? = null
     )
 
-    @PatchMapping
-    fun patchTask(@RequestParam taskId: Int, @RequestBody patch: TaskPatch): List<Task> {
+    @PatchMapping("/{taskId}")
+    fun patchTask(@PathVariable("taskId") taskId: Int, @RequestBody patch: TaskPatch): List<Task> {
         val tasks = mapper.readValue<MutableList<Task>>(dataFile)
         val index = tasks.indexOfFirst { it.id == taskId }
 

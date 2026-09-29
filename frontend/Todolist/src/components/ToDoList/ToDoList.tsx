@@ -12,7 +12,7 @@ export default function ToDoList() {
     const [modal, setModal] = useState(false)
     const [activeTask, setActiveTask] = useState<List | null>(null)
     const [formMode, setFormMode] = useState<"new" | "update">("new")
-
+    
 
     //start a new Task
     const handleNewTask = () => {
@@ -23,10 +23,26 @@ export default function ToDoList() {
             subTasks: [],
             finished: false
         }
-        setModal(true)
-        setActiveTask(emptyTask)
+        setFormMode("new");
+        setModal(true);
+        setActiveTask(emptyTask);
         
 
+    }
+    //mark task as completed
+    const handleComplete = (taskId: number) => {
+
+    }
+    // Remove task from list:
+    const handleDelete = (taskId: number) => {
+
+    }
+
+    //Open modal to update info
+    const handleUpdate = (task: List) => {
+        setFormMode("update");
+        setActiveTask(task);
+        setModal(true);
     }
 
 
@@ -39,6 +55,7 @@ export default function ToDoList() {
         <div>
             {list?.map((task: List) => (
                 <div key={task.id}>
+                    <div>
                     <h2>{task?.title}</h2>
                     <p>{task?.description}</p>
                     <p>{task?.finished ? "Finished" : "Not finished"}</p>
@@ -49,6 +66,10 @@ export default function ToDoList() {
                         <p>{subTask?.finished ? "Done" : "Not done"}</p>
                         </div>
                     ))}
+                    </div>
+                    <div>
+                        <button onClick={() => handleUpdate(task)}> Update</button>
+                    </div>
                 </div>
             ))}
         </div>

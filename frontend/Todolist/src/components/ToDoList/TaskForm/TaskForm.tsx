@@ -31,14 +31,33 @@ export default function TaskForm({activeTask, setActiveTask, setModal, formMode}
         
         setModal(false)
         setActiveTask(null)
-
-
         
         }catch(err){
             console.log(err)
             setError("Failed to create task.")
         }
+        }else {
+            const updatedTask = {
+                id: activeTask.id,
+                title: activeTask.title,
+                description: activeTask.description,
+                subTasks: activeTask.subTasks,
+                finished: false
+            }
+
+            try{
+                await listService.updateData(`http://localhost:7867/tasks/${activeTask.id}`, updatedTask)
+
+                setModal(false)
+                setActiveTask(null)
+
+            }catch(err){
+                console.log(err)
+                setError("Failed to update the task")
+            }
         }
+
+
     }
 
     if (!activeTask) return null;
@@ -62,8 +81,8 @@ export default function TaskForm({activeTask, setActiveTask, setModal, formMode}
             />
         </label>
         <button>Add subtask</button>
-        <button type="submit">Create Task</button>
-
+        {formMode === "update" ? <button type="submit">Update Task</button> : <button type="submit">Create Task</button>}
+        
         {error && (<p>{error}</p>)}
     </form>
     )    

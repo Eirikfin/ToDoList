@@ -21,7 +21,13 @@
 }, {
   "id" : 3,
   "title" : "Stævsug gulvet",
-  "description" : "brrrrrrrrrrrrrrrrrr",
+  "description" : "br",
+  "finished" : false,
+  "subTasks" : [ ]
+}, {
+  "id" : 4,
+  "title" : "Stævsug gulvet",
+  "description" : "vroooom",
   "finished" : false,
   "subTasks" : [ ]
 } ]
